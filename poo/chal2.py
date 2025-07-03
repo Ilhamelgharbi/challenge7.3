@@ -30,17 +30,17 @@ class Enseignant(Person):
         super().afficher_info()
         print(f"La spécialité est {self.specialite} et le salaire est {self.salaire}€.")
     @property
-    def salaire(self):
+    def getsalaire(self):
         return self._salaire
 
     @salaire.setter
-    def salaire(self, valeur):
+    def setsalaire(self, valeur):
         if valeur >= 0:
             self._salaire = valeur
         else:
             print("Erreur : salaire ne peut pas être négatif")
 class Ecole:
-        def __init__(self, nom):
+        def __init__(self, nom, liste_etudiants , liste_enseignants):
             self.nom = nom
             self.liste_etudiants = []
             self.liste_enseignants = []
@@ -64,7 +64,7 @@ def main():
      etudiant.afficher_info()
      ecole.ajouter_etudiant(etudiant)
      enseignant = Enseignant("Dr. Smith", "John", 40, "Informatique", 3000)
-     enseignant.salaire = 3500  
+     enseignant.setsalaire = 3500  
      enseignant.afficher_info()
      ecole.ajouter_enseignant(enseignant)
      ecole.afficher_tous_les_membres()
