@@ -40,10 +40,10 @@ class Enseignant(Person):
         else:
             print("Erreur : salaire ne peut pas être négatif")
 class Ecole:
-        def __init__(self, nom, liste_etudiants , liste_enseignants):
+        def __init__(self, nom, liste_etudiants=None, liste_enseignants=None):
             self.nom = nom
-            self.liste_etudiants = []
-            self.liste_enseignants = []
+            self.liste_etudiants = liste_etudiants if liste_etudiants is not None else []
+            self.liste_enseignants = liste_enseignants if liste_enseignants is not None else []
         def ajouter_etudiant(self , etudiant: Etudiant):
             self.liste_etudiants.append(etudiant)
 
